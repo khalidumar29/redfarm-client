@@ -1,12 +1,17 @@
-import logo from "./logo.svg";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./Pages/Home/Home";
+import NavBar from "./Shared/NavBar/NavBar";
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
-      <h1 className='text-purple-300'>this is home page</h1>
+      <NavBar></NavBar>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
