@@ -4,9 +4,12 @@ import "./Login.css";
 import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineTwitter } from "react-icons/ai";
+import DynamicTitle from "../../../Shared/DynamicTitle/DynamicTitle";
 const Login = () => {
   return (
     <div className='container my-lg-5'>
+      <DynamicTitle title={"| login"}></DynamicTitle>
+
       <div className='login-tamplates'>
         <form className='input-fild'>
           <h1 className='text-light'>Login</h1>
