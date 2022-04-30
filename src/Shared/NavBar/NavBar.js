@@ -32,9 +32,6 @@ const NavBar = () => {
             <CustomLink style={styles} to='/login'>
               Login
             </CustomLink>
-            <CustomLink style={styles} to='/SignIn'>
-              Sign In
-            </CustomLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

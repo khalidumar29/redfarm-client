@@ -32,8 +32,10 @@
   outline: none;
   border: none;
   border-bottom: 2px solid #780709;
-  background: none;
+  background: transparent;
+  color: #fff;
 }
+
 .input-fild input::placeholder {
   color: #780709;
 }
@@ -55,4 +57,14 @@
   outline: none;
   border-radius: 5px;
   padding: 5px 0;
+}
+/* responsive */
+@media only screen and (max-width: 768px) {
+  .login-tamplates {
+    flex-direction: column;
+    width: 350px;
+  }
+  .container {
+    margin: 0;
+  }
 }

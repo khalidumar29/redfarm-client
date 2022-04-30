@@ -7,8 +7,8 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import DynamicTitle from "../../../Shared/DynamicTitle/DynamicTitle";
 const Login = () => {
   return (
-    <div className='container my-lg-5'>
-      <DynamicTitle title={"| login"}></DynamicTitle>
+    <div className='my-lg-5'>
+      <DynamicTitle title={"|  login"}></DynamicTitle>
 
       <div className='login-tamplates'>
         <form className='input-fild'>
@@ -37,7 +37,7 @@ const Login = () => {
             <div className='d-flex align-items-center'>
               <input type='checkbox' name='check' id='' />
               <p style={{ marginBottom: "5px" }} className='ms-2 '>
-                Agree with terms & condition{" "}
+                Remember me?{" "}
               </p>
             </div>
             <a href='##' className='text-decoration-none text-primary'>
@@ -46,9 +46,9 @@ const Login = () => {
           </div>
           <input className='btn-login' type='submit' value='Login' />
           <p style={{ textAlign: "left", marginTop: "10px" }}>
-            if you don't have an account please create an{" "}
+            if you don't have an account please{" "}
             <Link to='/signIn' className='text-primary text-decoration-none'>
-              account?
+              create an account?
             </Link>
           </p>
         </form>
