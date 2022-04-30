@@ -16,7 +16,7 @@ const Footer = () => {
                 <br /> farmer can mange her goods in here
               </p>
               <p>Contact Us: 01XXXXXXXXXXX</p>
-              <p>Email: khalid100umar@company.com</p>
+              <p>Email: khalid@info</p>
             </div>
             <ul className='w-100'>
               <h3 style={{ textAlign: "left" }}>Quick Link</h3>
