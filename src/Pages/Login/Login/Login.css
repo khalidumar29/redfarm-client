@@ -1,15 +1,58 @@
 .login-tamplates {
   display: flex;
-  text-align: left;
-  width: 50%;
-  margin: auto;
   justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin: auto;
+  padding: 30px;
+  width: 840px;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(../../../images/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #cac7c0;
 }
-.input-fild input {
+.input-fild {
+  width: 100%;
+}
+.input-fild label {
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+.input-fild input[type="text"],
+[type="email"],
+[type="password"] {
   display: block;
   margin-right: 30px;
+  width: 100%;
+  padding: 10px 0;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #780709;
+  background: none;
+}
+.input-fild input::placeholder {
+  color: #780709;
+}
+.social-login {
+  width: 100%;
+  margin-right: -35px;
 }
 .social-login button {
   display: block;
-  margin-bottom: 10px;
+  width: 80%;
+  margin: 40px auto;
+  background: none;
+}
+.btn-login {
+  width: 100%;
+  color: white;
+  background: #780709;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 0;
 }

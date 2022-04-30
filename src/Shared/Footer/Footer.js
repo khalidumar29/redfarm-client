@@ -3,7 +3,7 @@ import logo from "../../images/Logo/Red Retro Barn Farm Logo Template (1).png";
 const Footer = () => {
   return (
     <footer style={{ backgroundColor: "#F8F9FA" }}>
-      <div className='container py-5'>
+      <div className='container py-3'>
         <div className='d-lg-flex justify-content-lg-between align-items-lg-center'>
           <div className=''>
             <img src={logo} alt='' />
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <p className='text-left py-2'>
+          <p className='text-left '>
             Copyright &copy; Inventory-Mania. All rights reserved.
           </p>
         </div>
