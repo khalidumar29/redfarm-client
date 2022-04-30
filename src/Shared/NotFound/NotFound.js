@@ -9,7 +9,7 @@ const NotFound = () => {
           style={{ height: "100%" }}
           className='w-100'
           src={NotFoundImage}
-          alt=''
+          alt='this is page not found'
         />
       </div>
     </div>
