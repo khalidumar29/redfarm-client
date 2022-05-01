@@ -1,0 +1,9 @@
+.banner-img {
+  height: 613px;
+}
+@media (max-width: 768px) {
+  .banner-img {
+    max-width: auto;
+    height: auto;
+  }
+}

@@ -1,11 +1,12 @@
 import React from "react";
 import DynamicTitle from "../../Shared/DynamicTitle/DynamicTitle";
+import Banner from "./Banner/Banner";
 
 const Home = () => {
   return (
     <div>
       <DynamicTitle key={"155gvjh"} title={" | Home"}></DynamicTitle>
-      <h1>home</h1>
+      <Banner></Banner>
     </div>
   );
 };

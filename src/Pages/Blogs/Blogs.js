@@ -47,7 +47,7 @@ const Blogs = () => {
       </div>
       <div className='py-2' style={{ textAlign: "left" }}>
         <h1 style={{ color: "#683b3b", fontWeight: "400" }}>
-          Differences between `sql` and `nosql` databases.
+          Differences between sql and nosql databases.
         </h1>
         <p style={{ fontSize: "17px", padding: "10px" }}>
           SQL databases are vertically scalable, while NoSQL databases are
