@@ -1,5 +1,7 @@
-#Red Barn Warehouse
-#####this is a warehouse website name is red barn warehouse. its store spice fruits, spice etc.
+#Red Barn Warehouse.
+
+###this is a warehouse website name is red barn warehouse. its store spice fruits, spice etc.
+
 [Live-link](https://inentory-managment.web.app/)
 
 ### List Of Feature
