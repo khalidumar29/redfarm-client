@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import UseAllProducts from "../../../Hooks/UseAllProducts";
 import InvnetoryProducts from "./InvnetoryProducts/InvnetoryProducts";
 
 const Inventory = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("./data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
-  }, []);
-
+  const [products] = UseAllProducts();
   return (
     <div className='container py-lg-3 '>
       <h1 className='py-3' style={{ color: "#780709" }}>

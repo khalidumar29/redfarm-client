@@ -9,6 +9,7 @@ import Footer from "./Shared/Footer/Footer";
 import NavBar from "./Shared/NavBar/NavBar";
 import NotFound from "./Shared/NotFound/NotFound";
 import Inventory from "./Pages/Inventory/Inventory";
+import { Toaster } from "react-hot-toast";
 const App = () => {
   return (
     <div className='App'>
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>
+      <Toaster position='top-center' reverseOrder={false} />
     </div>
   );
 };
