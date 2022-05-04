@@ -2,7 +2,9 @@ import { Button } from "react-bootstrap";
 import React from "react";
 import { Card } from "react-bootstrap";
 import { AiFillEdit } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 const InvnetoryProducts = ({ product }) => {
+  const navigate = useNavigate();
   const { name, image, description, price, quantity, supplierName } = product;
   return (
     <Card
@@ -16,8 +18,11 @@ const InvnetoryProducts = ({ product }) => {
         <Card.Text>{price}</Card.Text>
         <Card.Text>{quantity}</Card.Text>
         <Card.Text>{description}</Card.Text>
-        <Button variant='primary' className='d-flex align-items-center'>
-          {" "}
+        <Button
+          onClick={() => navigate("/inventory")}
+          variant='primary'
+          className='d-flex align-items-center'
+        >
           <AiFillEdit className='me-2' /> Update
         </Button>
       </Card.Body>

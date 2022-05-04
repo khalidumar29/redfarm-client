@@ -1,8 +1,10 @@
 import React from "react";
+import DynamicTitle from "../../Shared/DynamicTitle/DynamicTitle";
 
 const Blogs = () => {
   return (
     <div className='container py-lg-5'>
+      <DynamicTitle title={"| blogs"}></DynamicTitle>
       <div className='py-2' style={{ textAlign: "left" }}>
         <h1 style={{ color: "#683b3b", fontWeight: "400" }}>
           Difference between javascript and nodejs.

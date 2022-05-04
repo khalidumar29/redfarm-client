@@ -3,6 +3,9 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import CustomLink from "../CustomLink/CustomLink";
 import logo from "../../images/Logo/Red Retro Barn Farm Logo Template (1).png";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
 
 const NavBar = () => {
   const styles = {
@@ -11,6 +14,7 @@ const NavBar = () => {
     marginRight: "15px",
     textDecoration: "none",
   };
+  const [user] = useAuthState(auth);
   return (
     <Navbar bg='light' expand='lg'>
       <Container>
@@ -23,18 +27,34 @@ const NavBar = () => {
             <CustomLink style={styles} to='/home'>
               Home
             </CustomLink>
-            <CustomLink style={styles} to='/inventory'>
-              Inventory
-            </CustomLink>
+            {user ? (
+              <>
+                <CustomLink style={styles} to='/inventory'>
+                  Inventory
+                </CustomLink>
+              </>
+            ) : (
+              <></>
+            )}
             <CustomLink style={styles} to='/blogs'>
               Blogs
             </CustomLink>
             <CustomLink style={styles} to='/about'>
               About
             </CustomLink>
-            <CustomLink style={styles} to='/login'>
-              Login
-            </CustomLink>
+            {user ? (
+              <>
+                <CustomLink style={styles} onClick={() => signOut(auth)} to='/'>
+                  Log Out
+                </CustomLink>
+              </>
+            ) : (
+              <>
+                <CustomLink style={styles} to='/login'>
+                  Log In
+                </CustomLink>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

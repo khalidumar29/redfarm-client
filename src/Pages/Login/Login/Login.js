@@ -1,17 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineTwitter } from "react-icons/ai";
 import DynamicTitle from "../../../Shared/DynamicTitle/DynamicTitle";
+import auth from "../../../firebase.init";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import { Spinner } from "react-bootstrap";
 const Login = () => {
+  const [signInWithEmailAndPassword, user1, loading1, error1] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+  const navigate = useNavigate();
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    signInWithEmailAndPassword(email, password);
+  };
+  if (user1 || user2) {
+    toast.success("Successfully log in!", { id: "login-done" });
+    navigate("/");
+  }
+  if (loading1 || loading2) {
+    return <Spinner animation='grow' />;
+  }
   return (
     <div className='my-lg-5'>
       <DynamicTitle title={"|  login"}></DynamicTitle>
 
       <div className='login-tamplates'>
-        <form className='input-fild'>
+        <form onSubmit={handleLogIn} className='input-fild'>
           <h1 className='text-light'>Login</h1>
           <div style={{ margin: "0 0 20px 0" }}>
             <label htmlFor='email'>Your Email: </label>
@@ -32,6 +56,13 @@ const Login = () => {
               id=''
               required
             />
+            {error1 || error2 ? (
+              <p className='text-danger'>
+                {error1?.message || error2?.message}
+              </p>
+            ) : (
+              ""
+            )}
           </div>
           <div className='d-flex align-items-center justify-content-between mb-3 mt-3'>
             <div className='d-flex align-items-center'>
@@ -64,7 +95,10 @@ const Login = () => {
             />
             Continue with facebook
           </button>
-          <button className='btn btn-primary d-flex align-items-center justify-content-center'>
+          <button
+            onClick={() => signInWithGoogle()}
+            className='btn btn-primary d-flex align-items-center justify-content-center'
+          >
             <FcGoogle
               style={{
                 width: "20px",
