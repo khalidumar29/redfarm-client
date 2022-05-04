@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AiFillFacebook } from "react-icons/ai";
@@ -7,6 +7,7 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import DynamicTitle from "../../../Shared/DynamicTitle/DynamicTitle";
 import auth from "../../../firebase.init";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -16,10 +17,13 @@ const Login = () => {
   const [signInWithEmailAndPassword, user1, loading1, error1] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+  const [sendPasswordResetEmail, sending, error3] =
+    useSendPasswordResetEmail(auth);
+  const [email, setEmail] = useState("");
+
   const navigate = useNavigate();
   const handleLogIn = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
     const password = e.target.password.value;
     signInWithEmailAndPassword(email, password);
   };
@@ -27,9 +31,18 @@ const Login = () => {
     toast.success("Successfully log in!", { id: "login-done" });
     navigate("/");
   }
-  if (loading1 || loading2) {
+  if (loading1 || loading2 || sending) {
     return <Spinner animation='grow' />;
   }
+
+  const handlePassordReset = async () => {
+    await sendPasswordResetEmail(email);
+    if (error3) {
+      toast.error(error3?.message, { id: "reset-error" });
+    } else {
+      toast.success("send your password reset email", { id: "reset-password" });
+    }
+  };
   return (
     <div className='my-lg-5'>
       <DynamicTitle title={"|  login"}></DynamicTitle>
@@ -44,6 +57,7 @@ const Login = () => {
               type='email'
               name='email'
               id=''
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -71,9 +85,13 @@ const Login = () => {
                 Remember me?{" "}
               </p>
             </div>
-            <a href='##' className='text-decoration-none text-primary'>
+            <p
+              style={{ cursor: "pointer" }}
+              onClick={handlePassordReset}
+              className='text-decoration-none text-primary'
+            >
               forget password?
-            </a>
+            </p>
           </div>
           <input className='btn-login' type='submit' value='Login' />
           <p style={{ textAlign: "left", marginTop: "10px" }}>
