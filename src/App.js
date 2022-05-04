@@ -8,7 +8,7 @@ import SignIn from "./Pages/Login/SignIn/SignIn";
 import Footer from "./Shared/Footer/Footer";
 import NavBar from "./Shared/NavBar/NavBar";
 import NotFound from "./Shared/NotFound/NotFound";
-
+import Inventory from "./Pages/Inventory/Inventory";
 const App = () => {
   return (
     <div className='App'>
@@ -20,6 +20,8 @@ const App = () => {
         <Route path='/blogs' element={<Blogs />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signIn' element={<SignIn />}></Route>
+        <Route path='/inventory' element={<Inventory />}></Route>
+        <Route path='/inventory/:id' element={<SignIn />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>

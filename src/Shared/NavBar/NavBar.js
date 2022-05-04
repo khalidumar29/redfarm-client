@@ -23,6 +23,9 @@ const NavBar = () => {
             <CustomLink style={styles} to='/home'>
               Home
             </CustomLink>
+            <CustomLink style={styles} to='/inventory'>
+              Inventory
+            </CustomLink>
             <CustomLink style={styles} to='/blogs'>
               Blogs
             </CustomLink>
