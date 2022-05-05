@@ -1,6 +1,5 @@
 [
   {
-    "id": "1",
     "name": "Dry Fruits",
     "image": "https://i.ibb.co/Qb40x8b/GTN9p56cje-S7o-Lp-Rrhh-Zer9-Kc-LJIhb-YJyzc-Gl-JPB.jpg",
     "description": "This is a healthy food for you. you may buy it now",
@@ -9,8 +8,6 @@
     "supplierName": "General Foods"
   },
   {
-    "id": "2",
-
     "name": "Dry Fruits",
     "image": "https://i.ibb.co/Qb40x8b/GTN9p56cje-S7o-Lp-Rrhh-Zer9-Kc-LJIhb-YJyzc-Gl-JPB.jpg",
     "description": "This is a healthy food for you. you may buy it now",
@@ -19,8 +16,6 @@
     "supplierName": "General Foods"
   },
   {
-    "id": "3",
-
     "name": "Dry Fruits",
     "image": "https://i.ibb.co/Qb40x8b/GTN9p56cje-S7o-Lp-Rrhh-Zer9-Kc-LJIhb-YJyzc-Gl-JPB.jpg",
     "description": "This is a healthy food for you. you may buy it now",
@@ -29,8 +24,6 @@
     "supplierName": "General Foods"
   },
   {
-    "id": "4",
-
     "name": "Dry Fruits",
     "image": "https://i.ibb.co/Qb40x8b/GTN9p56cje-S7o-Lp-Rrhh-Zer9-Kc-LJIhb-YJyzc-Gl-JPB.jpg",
     "description": "This is a healthy food for you. you may buy it now",
@@ -39,8 +32,6 @@
     "supplierName": "General Foods"
   },
   {
-    "id": "5",
-
     "name": "Dry Fruits",
     "image": "https://i.ibb.co/Qb40x8b/GTN9p56cje-S7o-Lp-Rrhh-Zer9-Kc-LJIhb-YJyzc-Gl-JPB.jpg",
     "description": "This is a healthy food for you. you may buy it now",
@@ -49,7 +40,6 @@
     "supplierName": "General Foods"
   },
   {
-    "id": "6",
     "name": "Dry Fruits",
     "image": "https://i.ibb.co/Qb40x8b/GTN9p56cje-S7o-Lp-Rrhh-Zer9-Kc-LJIhb-YJyzc-Gl-JPB.jpg",
     "description": "This is a healthy food for you. you may buy it now",
@@ -58,7 +48,6 @@
     "supplierName": "General Foods"
   },
   {
-    "id": "7",
     "name": "Dry Fruits",
     "image": "https://i.ibb.co/Qb40x8b/GTN9p56cje-S7o-Lp-Rrhh-Zer9-Kc-LJIhb-YJyzc-Gl-JPB.jpg",
     "description": "This is a healthy food for you. you may buy it now",

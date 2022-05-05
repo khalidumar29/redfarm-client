@@ -11,6 +11,7 @@ import NotFound from "./Shared/NotFound/NotFound";
 import Inventory from "./Pages/Inventory/Inventory";
 import { Toaster } from "react-hot-toast";
 import RequiredAuth from "./Shared/RequiredAuth/RequiredAuth";
+import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 const App = () => {
   return (
     <div className='App'>
@@ -30,7 +31,14 @@ const App = () => {
             </RequiredAuth>
           }
         ></Route>
-        <Route path='/inventory/:id' element={<SignIn />}></Route>
+        <Route
+          path='/inventory/:id'
+          element={
+            <RequiredAuth>
+              <ProductDetails />
+            </RequiredAuth>
+          }
+        ></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>

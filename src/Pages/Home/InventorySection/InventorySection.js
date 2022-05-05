@@ -12,7 +12,7 @@ const Inventory = () => {
       <div className='d-flex flex-wrap '>
         {products.slice(0, 6).map((product) => (
           <InvnetoryProducts
-            key={product.id}
+            key={product._id}
             product={product}
           ></InvnetoryProducts>
         ))}

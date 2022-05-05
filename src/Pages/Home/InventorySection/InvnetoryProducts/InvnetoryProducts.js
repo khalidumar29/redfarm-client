@@ -5,7 +5,11 @@ import { AiFillEdit } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 const InvnetoryProducts = ({ product }) => {
   const navigate = useNavigate();
-  const { name, image, description, price, quantity, supplierName } = product;
+  const { _id, name, image, description, price, quantity, supplierName } =
+    product;
+  const handleProductDetails = (id) => {
+    navigate(`/inventory/${id}`);
+  };
   return (
     <Card
       className='my-3'
@@ -19,7 +23,7 @@ const InvnetoryProducts = ({ product }) => {
         <Card.Text>{quantity}</Card.Text>
         <Card.Text>{description}</Card.Text>
         <Button
-          onClick={() => navigate("/inventory")}
+          onClick={() => handleProductDetails(_id)}
           variant='primary'
           className='d-flex align-items-center'
         >

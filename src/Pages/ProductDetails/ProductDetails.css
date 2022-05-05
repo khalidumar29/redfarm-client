@@ -1,0 +1,7 @@
+.product-img {
+  width: 500px;
+  height: 400px;
+}
+.product-img img {
+  height: 100%;
+}
