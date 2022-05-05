@@ -1,15 +1,25 @@
 import React from "react";
+import { Spinner } from "react-bootstrap";
 import UseAllProducts from "../../../Hooks/UseAllProducts";
 import InvnetoryProducts from "./InvnetoryProducts/InvnetoryProducts";
 
 const Inventory = () => {
   const [products] = UseAllProducts();
+  if (products.length === 0 || products.length < 0) {
+    return (
+      <>
+        <Spinner animation='border' role='status'>
+          <span className='visually-hidden'>Loading...</span>
+        </Spinner>
+      </>
+    );
+  }
   return (
     <div className='container py-lg-3 '>
       <h1 className='py-3' style={{ color: "#780709" }}>
         Inventory Product
       </h1>
-      <div className='d-flex flex-wrap '>
+      <div className='d-flex justify-content-center flex-wrap '>
         {products.slice(0, 6).map((product) => (
           <InvnetoryProducts
             key={product._id}

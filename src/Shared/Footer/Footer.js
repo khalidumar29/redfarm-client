@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../images/Logo/Red Retro Barn Farm Logo Template (1).png";
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "#F8F9FA" }}>
+    <footer className='' style={{ backgroundColor: "#F8F9FA" }}>
       <div className='container-lg py-3'>
         <div className='d-lg-flex justify-content-lg-between align-items-lg-center'>
           <div className=''>

@@ -7,8 +7,9 @@ import { Button } from "react-bootstrap";
 const ProductDetails = () => {
   const { id } = useParams();
   const [productsDetails] = UseProductsDetails(id);
+
   return (
-    <div className='container py-3 d-lg-flex align-items-top'>
+    <div className='container py-3 d-flex align-items-top'>
       <div className='product-img'>
         <img className='w-100' src={productsDetails.image} alt='' />
       </div>

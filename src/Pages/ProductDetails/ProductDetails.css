@@ -5,3 +5,9 @@
 .product-img img {
   height: 100%;
 }
+/* responsive */
+@media only screen and (max-width: 768px) {
+  .product-img {
+    height: 250px;
+  }
+}
