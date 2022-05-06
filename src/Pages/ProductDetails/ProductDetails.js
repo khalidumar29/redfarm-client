@@ -16,8 +16,7 @@ const ProductDetails = () => {
           ? (productsDetails["quantity"] -= 1)
           : 0,
     };
-    const url = `https://warehouse-management10.herokuapp.com/inventory/${id}
-/${id}`;
+    const url = `https://warehouse-management10.herokuapp.com/inventory/${id}`;
     fetch(url, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -36,8 +35,7 @@ const ProductDetails = () => {
         ...productsDetails,
         quantity: (productsDetails.quantity += stock),
       };
-      const url = `https://warehouse-management10.herokuapp.com/inventory/${id}
-/${id}`;
+      const url = `https://warehouse-management10.herokuapp.com/inventory/${id}`;
       fetch(url, {
         method: "PUT",
         headers: { "content-type": "application/json" },
