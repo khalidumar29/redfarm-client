@@ -16,11 +16,11 @@ const Inventory = () => {
   }
   return (
     <div className='mt-2 container d-flex flex-wrap justify-content-lg-between'>
-      <DynamicTitle title={"| inventory"}></DynamicTitle>
+      <DynamicTitle key={"wrf"} title={"| inventory"}></DynamicTitle>
 
       {products.map((product) => (
         <InvnetoryProducts
-          key={product.id}
+          key={product._id}
           product={product}
         ></InvnetoryProducts>
       ))}

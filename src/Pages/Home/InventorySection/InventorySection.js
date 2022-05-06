@@ -5,7 +5,7 @@ import InvnetoryProducts from "./InvnetoryProducts/InvnetoryProducts";
 
 const Inventory = () => {
   const [products] = UseAllProducts();
-  if (products.length === 0 || products.length < 0) {
+  if (products.length < 1) {
     return (
       <>
         <Spinner animation='border' role='status'>

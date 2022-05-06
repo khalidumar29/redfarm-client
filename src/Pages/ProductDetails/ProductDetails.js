@@ -6,7 +6,47 @@ import { IoMdSend } from "react-icons/io";
 import { Button } from "react-bootstrap";
 const ProductDetails = () => {
   const { id } = useParams();
-  const [productsDetails] = UseProductsDetails(id);
+  const [productsDetails, setProductsDetails] = UseProductsDetails(id);
+
+  const handleClick = (id) => {
+    const newQuantity = {
+      ...productsDetails,
+      quantity:
+        productsDetails["quantity"] > 0
+          ? (productsDetails["quantity"] -= 1)
+          : 0,
+    };
+    const url = `http://localhost:5000/inventory/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(productsDetails),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+    setProductsDetails(newQuantity);
+  };
+  const handleReStock = (e) => {
+    e.preventDefault();
+    const getStockValue = e.target.stock.value;
+    const stock = parseInt(getStockValue);
+    if (stock > 0) {
+      const newQuantity = {
+        ...productsDetails,
+        quantity: (productsDetails.quantity += stock),
+      };
+      const url = `http://localhost:5000/inventory/${id}`;
+      fetch(url, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(productsDetails),
+      })
+        .then((res) => res.json())
+        .then((result) => console.log(result));
+      setProductsDetails(newQuantity);
+    }
+    e.target.reset();
+  };
 
   return (
     <div className='container py-3 d-flex align-items-top'>
@@ -15,7 +55,7 @@ const ProductDetails = () => {
       </div>
       <div style={{ textAlign: "left" }}>
         <h4>{productsDetails.name}</h4>
-        <p style={{ fontSize: "11px", color: "#555050" }} disable>
+        <p style={{ fontSize: "11px", color: "#555050" }}>
           id: {productsDetails._id}
         </p>
         <p>
@@ -30,10 +70,15 @@ const ProductDetails = () => {
         </p>
         <p>quantity: {productsDetails.quantity}</p>
         <p>{productsDetails.description}</p>
-        <Button className='btn btn-primary'>
+        <Button onClick={() => handleClick(id)} className='btn btn-primary'>
           Delivered
           <IoMdSend className='ms-2' />
         </Button>{" "}
+        <form onSubmit={handleReStock} className='py-3'>
+          <label htmlFor='stock'> Restock Proudcts </label>
+          <input className='d-block my-2 rounded' name='stock' type='number' />
+          <input className='btn btn-dark' type='submit' value='Restock' />
+        </form>
       </div>
     </div>
   );
