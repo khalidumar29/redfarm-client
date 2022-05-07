@@ -14,6 +14,7 @@ import RequiredAuth from "./Shared/RequiredAuth/RequiredAuth";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 import AddNewItems from "./Pages/AddNewItems/AddNewItems";
+import MyItems from "./Pages/MyItems/MyItems";
 const App = () => {
   return (
     <div className='App'>
@@ -54,6 +55,14 @@ const App = () => {
           element={
             <RequiredAuth>
               <AddNewItems></AddNewItems>
+            </RequiredAuth>
+          }
+        ></Route>
+        <Route
+          path='/myitems'
+          element={
+            <RequiredAuth>
+              <MyItems></MyItems>
             </RequiredAuth>
           }
         ></Route>

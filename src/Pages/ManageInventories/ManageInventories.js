@@ -35,11 +35,11 @@ const ManageInventories = (id) => {
         <tbody>
           {products.map((product) => (
             <>
-              <tr>
+              <tr key={product._id}>
                 <td>{products.indexOf(product) + 1}</td>
                 <td>{product.name}</td>
                 <td>{product.supplierName}</td>
-                <td>
+                <td className='d-flex justify-content-center align-items-center'>
                   <Button
                     onClick={() => handleDeleteItems(product._id)}
                     style={{ background: "none" }}

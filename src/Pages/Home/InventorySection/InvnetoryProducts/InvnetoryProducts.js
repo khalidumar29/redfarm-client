@@ -13,7 +13,12 @@ const InvnetoryProducts = ({ product }) => {
   return (
     <Card
       className='my-3'
-      style={{ width: "18rem", marginRight: "30px", textAlign: "left" }}
+      style={{
+        width: "18rem",
+        marginRight: "30px",
+        textAlign: "left",
+        height: "auto",
+      }}
     >
       <Card.Img style={{ padding: "5px" }} src={image} />
       <Card.Body>
