@@ -22,7 +22,7 @@ const ManageInventories = (id) => {
     }
   };
   return (
-    <div>
+    <div className='container'>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -62,6 +62,14 @@ const ManageInventories = (id) => {
           ))}
         </tbody>
       </Table>
+      <Button
+        onClick={() => {
+          navigate("/addnewitems");
+        }}
+        className='my-2 btn btn-dark'
+      >
+        Add More Items
+      </Button>
     </div>
   );
 };
