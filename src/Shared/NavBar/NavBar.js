@@ -36,6 +36,15 @@ const NavBar = () => {
             ) : (
               <></>
             )}
+            {user ? (
+              <>
+                <CustomLink style={styles} to='/manageinventories'>
+                  Manage Inventories
+                </CustomLink>
+              </>
+            ) : (
+              <></>
+            )}
             <CustomLink style={styles} to='/blogs'>
               Blogs
             </CustomLink>

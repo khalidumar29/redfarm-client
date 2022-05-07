@@ -1,5 +1,6 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import UseAllProducts from "../../../Hooks/UseAllProducts";
 import InvnetoryProducts from "./InvnetoryProducts/InvnetoryProducts";
 
@@ -27,6 +28,9 @@ const Inventory = () => {
           ></InvnetoryProducts>
         ))}
       </div>
+      <Link className='btn btn-primary' to={"/manageinventories"}>
+        Manage Inventories
+      </Link>
     </div>
   );
 };

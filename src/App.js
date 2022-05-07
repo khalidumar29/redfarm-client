@@ -12,6 +12,7 @@ import Inventory from "./Pages/Inventory/Inventory";
 import { Toaster } from "react-hot-toast";
 import RequiredAuth from "./Shared/RequiredAuth/RequiredAuth";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
+import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 const App = () => {
   return (
     <div className='App'>
@@ -36,6 +37,14 @@ const App = () => {
           element={
             <RequiredAuth>
               <ProductDetails />
+            </RequiredAuth>
+          }
+        ></Route>
+        <Route
+          path='/manageinventories'
+          element={
+            <RequiredAuth>
+              <ManageInventories></ManageInventories>
             </RequiredAuth>
           }
         ></Route>
