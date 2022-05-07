@@ -13,6 +13,7 @@ import {
 } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
 import { Spinner } from "react-bootstrap";
+import axios from "axios";
 const Login = () => {
   const [signInWithEmailAndPassword, user1, loading1, error1] =
     useSignInWithEmailAndPassword(auth);
@@ -22,11 +23,20 @@ const Login = () => {
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
-  const handleLogIn = (e) => {
+
+  const handleLogIn = async (e) => {
     e.preventDefault();
     const password = e.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      "https://warehouse-management10.herokuapp.com/inventory/getjwt",
+      {
+        email,
+      }
+    );
+    localStorage.setItem("secretToken", data.secretToken);
   };
+
   if (user1 || user2) {
     toast.success("Successfully log in!", { id: "login-done" });
     navigate("/");
@@ -56,7 +66,7 @@ const Login = () => {
               placeholder='Your email'
               type='email'
               name='email'
-              id=''
+              id='iuhiuh'
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -67,7 +77,7 @@ const Login = () => {
               placeholder='Password'
               type='password'
               name='password'
-              id=''
+              id='ihu'
               required
             />
             {error1 || error2 ? (

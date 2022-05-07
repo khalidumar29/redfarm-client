@@ -7,7 +7,11 @@ const MyItems = () => {
   const [user, loading] = useAuthState(auth);
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch("https://warehouse-management10.herokuapp.com/inventory")
+    fetch("https://warehouse-management10.herokuapp.com/inventory", {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("secretToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         const myItems = data.filter((myItem) => myItem.email === user.email);
