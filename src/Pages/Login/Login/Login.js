@@ -9,6 +9,7 @@ import auth from "../../../firebase.init";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
+  useSignInWithFacebook,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
@@ -20,6 +21,8 @@ const Login = () => {
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
   const [sendPasswordResetEmail, sending, error3] =
     useSendPasswordResetEmail(auth);
+  const [signInWithFacebook, user4, loading4, error4] =
+    useSignInWithFacebook(auth);
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
@@ -37,11 +40,11 @@ const Login = () => {
     localStorage.setItem("secretToken", data.secretToken);
   };
 
-  if (user1 || user2) {
+  if (user1 || user2 || user4) {
     toast.success("Successfully log in!", { id: "login-done" });
     navigate("/");
   }
-  if (loading1 || loading2 || sending) {
+  if (loading1 || loading2 || sending || loading4) {
     return <Spinner animation='grow' />;
   }
 
@@ -80,9 +83,9 @@ const Login = () => {
               id='ihu'
               required
             />
-            {error1 || error2 ? (
+            {error1 || error2 || error4 ? (
               <p className='text-danger'>
-                {error1?.message || error2?.message}
+                {error1?.message || error2?.message || error4?.message}
               </p>
             ) : (
               ""
@@ -112,7 +115,10 @@ const Login = () => {
           </p>
         </form>
         <div className='social-login'>
-          <button className='btn btn-primary d-flex align-items-center justify-content-center'>
+          <button
+            onClick={() => signInWithFacebook()}
+            className='btn btn-primary d-flex align-items-center justify-content-center'
+          >
             <AiFillFacebook
               style={{
                 width: "20px",

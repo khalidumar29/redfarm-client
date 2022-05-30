@@ -7,6 +7,7 @@ import DynamicTitle from "../../../Shared/DynamicTitle/DynamicTitle";
 import auth from "../../../firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithFacebook,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
@@ -17,6 +18,8 @@ const Login = () => {
   const [createUserWithEmailAndPassword, user1, loading1, error1] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+  const [signInWithFacebook, user3, loading3, error3] =
+    useSignInWithFacebook(auth);
   const navigate = useNavigate();
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -37,13 +40,15 @@ const Login = () => {
       createUserWithEmailAndPassword(email, password);
     }
   };
-  if (loading1 || loading2) {
+  if (loading1 || loading2 || loading3) {
     return <Spinner animation='grow' />;
   }
-  if (error1 || error2) {
-    toast.error(error1?.message || error2?.message, { id: "passwordError" });
+  if (error1 || error2 || error3) {
+    toast.error(error1?.message || error2?.message || error3?.message, {
+      id: "passwordError",
+    });
   }
-  if (user1 || user2) {
+  if (user1 || user2 || user3) {
     toast.success("Successfully sign In!", { id: "error" });
     navigate("/");
   }
@@ -127,7 +132,10 @@ const Login = () => {
           </p>
         </form>
         <div className='social-login'>
-          <button className='btn btn-primary d-flex align-items-center justify-content-center'>
+          <button
+            onClick={() => signInWithFacebook()}
+            className='btn btn-primary d-flex align-items-center justify-content-center'
+          >
             <AiFillFacebook
               style={{
                 width: "20px",
